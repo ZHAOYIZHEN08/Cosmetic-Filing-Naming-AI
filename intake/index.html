@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmetic Naming Brief Builder</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Cosmetic Naming AI · Brief Builder</div>
+      <h1>先把产品说清楚，再让 AI 取名</h1>
+      <p>无需 API、无需登录。这个页面只负责把产品信息标准化成 AI 能直接读取的 Naming Brief；点击复制后，粘贴回你的 Cosmetic Naming AI Skill 对话即可。</p>
+    </div>
+    <div class="privacy">● Static / No API<br><span>数据默认只停留在当前浏览器页面</span></div>
+  </header>
+
+  <div class="progress">
+    <button class="step active" data-step="1"><span>1</span> 产品</button>
+    <button class="step" data-step="2"><span>2</span> 功效</button>
+    <button class="step" data-step="3"><span>3</span> 风格</button>
+    <button class="step" data-step="4"><span>4</span> 资产</button>
+    <button class="step" data-step="5"><span>5</span> 生成 Brief</button>
+  </div>
+
+  <main class="layout">
+    <section class="workspace">
+      <div class="panel view active" data-view="1">
+        <div class="panel-head">
+          <div><div class="num">01</div><h2>这是什么产品？</h2><p>优先搜索日常叫法；选中后，系统会自动推荐监管属性。</p></div>
+        </div>
+
+        <div class="searchbox">
+          <label>快速搜索产品类型</label>
+          <input id="categorySearch" placeholder="例如：唇釉、泥膜、头皮精华、身体乳">
+          <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <div class="divider"><span>或按类目选择</span></div>
+
+        <div class="grid3">
+          <div class="field"><label>一级类目 *</label><select id="l1"></select></div>
+          <div class="field"><label>二级类目 *</label><select id="l2" disabled></select></div>
+          <div class="field"><label>三级类目 *</label><select id="l3" disabled></select></div>
+        </div>
+
+        <div id="mappingHint" class="hint-card hidden"></div>
+
+        <div class="grid2 topgap">
+          <div class="field">
+            <label>监管剂型 *</label>
+            <select id="dosage"></select>
+            <small id="dosageHelp">选择真实物理形态，不是商品昵称。</small>
+          </div>
+          <div class="field">
+            <label>使用方法 *</label>
+            <select id="method"></select>
+          </div>
+          <div class="field">
+            <label>使用部位 *</label>
+            <select id="area"></select>
+          </div>
+          <div class="field">
+            <label>计划备案地区 *</label>
+            <select id="province"></select>
+            <small>请选择备案人所在地对应的省级地区。</small>
+          </div>
+        </div>
+
+        <div class="subhead">监管使用人群</div>
+        <div id="population" class="segmented"></div>
+
+        <div class="subhead">目标性别 <small>仅影响命名风格，不改变监管人群</small></div>
+        <div id="gender" class="segmented">
+          <button data-value="ANY" class="active">不限</button>
+          <button data-value="F">女性倾向</button>
+          <button data-value="M">男性倾向</button>
+        </div>
+
+        <div class="field topgap">
+          <label>品牌名 <span>可选</span></label>
+          <input id="brand" placeholder="例如：珀莱雅">
+        </div>
+      </div>
+
+      <div class="panel view" data-view="2">
+        <div class="panel-head">
+          <div><div class="num">02</div><h2>这个产品准备说什么？</h2><p>系统先展示类目相关功效，但“推荐”不等于唯一允许；更多功效仍可选择。</p></div>
+        </div>
+        <div class="subhead first">推荐功效</div>
+        <div id="recommendedEff" class="chips"></div>
+        <div class="subhead">更多可选功效</div>
+        <div id="otherEff" class="chips"></div>
+        <div id="effWarning" class="notice hidden"></div>
+
+        <div class="subhead">命名重点 <small>可不选，由 AI 推荐；如选择，最多 2 个</small></div>
+        <div id="priorityEff" class="chips"></div>
+
+        <div class="field topgap">
+          <label>营销上还会怎么描述？ <span>可选</span></label>
+          <textarea id="marketingLanguage" placeholder="例如：不拔干、熬夜脸、维稳感、轻薄不闷……这些词不会直接当作备案功效，AI 会先做语义映射。"></textarea>
+        </div>
+      </div>
+
+      <div class="panel view" data-view="3">
+        <div class="panel-head">
+          <div><div class="num">03</div><h2>希望名字听起来怎么样？</h2><p>不想调数字也没关系，保持默认即可；你也可以直接在下面用一句话描述。</p></div>
+        </div>
+        <div id="styleSliders"></div>
+        <div class="subhead">添加风格 <small>可多选</small></div>
+        <div id="styleTags" class="chips"></div>
+        <div class="subhead">一定不要出现 / 联想到</div>
+        <div id="avoidTags" class="chips"></div>
+        <div class="field topgap">
+          <label>用自己的话描述 <span>可选</span></label>
+          <textarea id="styleText" placeholder="例如：成熟但不要老气，功效感明确但不要药妆，现代克制，可以有一点高级科技感。"></textarea>
+        </div>
+      </div>
+
+      <div class="panel view" data-view="4">
+        <div class="panel-head">
+          <div><div class="num">04</div><h2>有什么真实产品资产？</h2><p>全部可选。没有就跳过；AI 不会因为空着就自己发明成分、技术或肤感。</p></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><label>核心成分</label><input id="ingredients" placeholder="例如：A醇、胜肽；多个用顿号分隔"></div>
+          <div class="field"><label>真实技术 / 平台</label><input id="technology" placeholder="仅填真实存在的技术资产"></div>
+          <div class="field"><label>真实质地 / 肤感</label><input id="sensory" placeholder="例如：绵密厚润、轻薄水感、柔雾"></div>
+          <div class="field"><label>系列 / 包装 / 视觉资产</label><input id="seriesVisual" placeholder="例如：红宝石系列、双仓包装、黑金视觉"></div>
+        </div>
+        <div class="field topgap">
+          <label>未来 SKU / 系列规划 <span>可选</span></label>
+          <textarea id="futureSku" placeholder="例如：未来还会有精华、面霜，希望共用同一系列母词。"></textarea>
+        </div>
+        <div class="notice info">只有当候选名真的要形成“成分/技术 → 功效”的强关联时，Skill 才会继续确认 Claim Attribution；这里不要求填复杂矩阵。</div>
+      </div>
+
+      <div class="panel view" data-view="5">
+        <div class="panel-head">
+          <div><div class="num">05</div><h2>生成 AI-ready Naming Brief</h2><p>系统不会在这里取名。它只把你刚才的选择转成结构化 Prompt，复制后粘贴回 Skill 对话即可。</p></div>
+        </div>
+
+        <div id="validationBox" class="validation"></div>
+
+        <div class="prompt-actions">
+          <button id="generateBrief" class="primary">生成 Naming Brief</button>
+          <button id="copyBrief" class="secondary" disabled>复制完整 Prompt</button>
+          <button id="downloadJson" class="secondary" disabled>下载 JSON</button>
+          <button id="openChatGPT" class="ghost">打开 ChatGPT ↗</button>
+        </div>
+
+        <div id="copyFeedback" class="copy-feedback"></div>
+        <textarea id="promptPreview" class="prompt-preview" placeholder="完成必要信息后点击“生成 Naming Brief”"></textarea>
+      </div>
+
+      <div class="footer-nav">
+        <button id="prevBtn" class="ghost">← 上一步</button>
+        <button id="nextBtn" class="primary">下一步 →</button>
+      </div>
+    </section>
+
+    <aside class="summary-panel">
+      <div class="summary-head">
+        <div class="eyebrow">Live Brief</div>
+        <h3>当前产品</h3>
+      </div>
+      <div id="liveSummary" class="summary-body"></div>
+      <div id="completion" class="completion"></div>
+      <div class="privacy-note">
+        <strong>隐私</strong>
+        <p>此 Builder 不调用任何 AI API，也不需要 API Key。除非你自己复制、下载或粘贴，页面不会主动把产品信息发送到 ChatGPT。</p>
+      </div>
+    </aside>
+  </main>
+</div>
+<script src="data_bundle.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
