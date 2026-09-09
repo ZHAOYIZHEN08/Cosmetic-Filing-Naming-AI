@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cosmetic Naming Brief Builder</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cosmetic Naming Brief Builder</title><style>
+:root{--bg:#f5f2ed;--panel:#fffdf9;--text:#27231f;--muted:#776f66;--line:#ded7ce;--olive:#73755a;--oliveSoft:#efefe4;--rose:#b35461;--roseSoft:#f9e9ec;--green:#50735c;--greenSoft:#edf5ef;--amber:#9a6b32;--amberSoft:#fff3df;--blue:#526985;--blueSoft:#eef2f7;--shadow:0 18px 50px rgba(60,48,36,.08)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f8f5f0,#f1ece5);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--text)}button,input,select,textarea{font:inherit}.shell{max-width:1450px;margin:auto;padding:28px 30px 70px}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:20px}.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--olive);font-weight:800;text-transform:uppercase}.hero h1{font-family:"Songti SC","STSong",serif;font-size:42px;margin:10px 0}.hero p{max-width:880px;color:var(--muted);line-height:1.75;margin:0}.privacy{border:1px solid #d8d4bf;background:#f2f2e8;color:var(--olive);padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5}.privacy span{color:var(--muted)}
+.progress{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}.step{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 13px;color:#655f58;cursor:pointer}.step span{display:inline-flex;width:21px;height:21px;border-radius:50%;align-items:center;justify-content:center;background:#eeeae4;margin-right:6px;font-size:11px}.step.active{background:#28241f;color:white;border-color:#28241f}.step.active span{background:#fff;color:#28241f}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:20px;align-items:start}.workspace,.summary-panel{background:rgba(255,253,249,.96);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.workspace{overflow:hidden}.panel{display:none;padding:24px}.panel.active{display:block}.panel-head{display:flex;justify-content:space-between;gap:16px;margin-bottom:20px}.num{font-size:12px;font-weight:800;color:var(--olive);letter-spacing:.12em}.panel h2{font-family:"Songti SC","STSong",serif;font-size:29px;margin:5px 0 7px}.panel-head p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}.field{display:flex;flex-direction:column;gap:7px}.field label,.searchbox label{font-size:13px;font-weight:800}.field label span{font-weight:400;color:var(--muted)}input,select,textarea{width:100%;border:1px solid var(--line);background:white;border-radius:11px;padding:11px 12px;outline:none;color:var(--text)}input:focus,select:focus,textarea:focus{border-color:#a7a98a;box-shadow:0 0 0 3px rgba(115,117,90,.09)}textarea{min-height:88px;resize:vertical;line-height:1.55}.field small{color:var(--muted);font-size:11px;line-height:1.5}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.topgap{margin-top:14px}.subhead{font-size:13px;font-weight:800;margin:20px 0 10px}.subhead.first{margin-top:4px}.subhead small{font-weight:400;color:var(--muted)}.divider{display:flex;align-items:center;gap:12px;color:#aaa39b;font-size:11px;margin:17px 0}.divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}.searchbox{position:relative}.search-results{position:absolute;z-index:10;left:0;right:0;top:67px;background:white;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);max-height:280px;overflow:auto;display:none}.search-results.show{display:block}.search-item{padding:10px 12px;border-bottom:1px solid #eee9e2;cursor:pointer}.search-item:last-child{border-bottom:0}.search-item:hover{background:#f6f3ee}.search-item strong{font-size:13px}.search-item span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.hint-card,.notice,.validation{border-radius:11px;padding:11px 12px;font-size:12px;line-height:1.55}.hint-card{margin-top:12px;background:var(--blueSoft);color:var(--blue);border:1px solid #d6dfe9}.hidden{display:none!important}.notice{margin-top:10px;background:var(--amberSoft);color:#7e5828;border:1px solid #e8d1aa}.notice.info{background:var(--blueSoft);color:var(--blue);border-color:#d6dfe9}.segmented,.chips{display:flex;gap:8px;flex-wrap:wrap}.segmented button,.chip{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 12px;color:#605b54;cursor:pointer}.segmented button.active{background:var(--oliveSoft);border-color:var(--olive);color:var(--olive);font-weight:800}.chip.on{background:var(--roseSoft);border-color:var(--rose);color:var(--rose);font-weight:800}.chip.rec:before{content:"推荐";font-size:9px;background:var(--oliveSoft);color:var(--olive);padding:2px 4px;border-radius:4px;margin-right:5px}.chip.special:after{content:"特殊";font-size:9px;background:var(--amberSoft);color:var(--amber);padding:2px 4px;border-radius:4px;margin-left:5px}.chip.disabled{opacity:.3;cursor:not-allowed}.slider{display:grid;grid-template-columns:110px 1fr 110px 40px;gap:12px;align-items:center;margin:14px 0}.slider .left{text-align:right;font-size:12px;color:#625d56}.slider .right{font-size:12px;color:#625d56}.slider input{padding:0;border:0;box-shadow:none;accent-color:var(--olive)}.slider .value{text-align:right;font-size:11px;color:var(--muted)}
+.footer-nav{display:flex;justify-content:space-between;padding:18px 24px;border-top:1px solid var(--line)}button.primary,button.secondary,button.ghost{border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700}button.primary{background:#28241f;color:white;border:1px solid #28241f}button.secondary{background:white;border:1px solid var(--line);color:#4d4741}button.ghost{background:transparent;border:1px solid transparent;color:#5d5750}button:disabled{opacity:.4;cursor:not-allowed}.summary-panel{position:sticky;top:18px;overflow:hidden}.summary-head{padding:18px 18px 13px;border-bottom:1px solid var(--line)}.summary-head h3{font-family:"Songti SC","STSong",serif;font-size:22px;margin:5px 0 0}.summary-body{padding:14px 18px;display:flex;flex-direction:column;gap:10px}.sumrow{display:grid;grid-template-columns:92px 1fr;gap:8px;font-size:12px;line-height:1.55}.sumrow span:first-child{color:var(--muted)}.completion{margin:0 18px 14px;padding:10px 11px;border-radius:10px;background:#f4f1ed;color:#6d665e;font-size:12px}.completion.ok{background:var(--greenSoft);color:var(--green)}.privacy-note{margin:0 18px 18px;padding:12px;border:1px solid var(--line);border-radius:11px;background:#faf8f4;font-size:11px;color:var(--muted);line-height:1.6}.privacy-note strong{color:#5c574f}.prompt-actions{display:flex;gap:8px;flex-wrap:wrap;margin:13px 0}.prompt-preview{min-height:340px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}.validation.ok{background:var(--greenSoft);color:var(--green);border:1px solid #cee0d3}.validation.err{background:#fff0ef;color:#9b4441;border:1px solid #ecc2bf}.copy-feedback{font-size:12px;color:var(--green);min-height:20px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.summary-panel{position:relative;top:auto}.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr 1fr}}@media(max-width:650px){.shell{padding:18px 12px 45px}.hero{flex-direction:column;align-items:flex-start}.hero h1{font-size:34px}.grid2{grid-template-columns:1fr}.slider{grid-template-columns:1fr}.slider .left{text-align:left}.summary-panel{display:none}}
+</style></head><body>
 <div class="shell">
   <header class="hero">
     <div>
@@ -174,7 +173,257 @@
     </aside>
   </main>
 </div>
-<script src="data_bundle.js"></script>
-<script src="app.js"></script>
-</body>
-</html>
+
+
+<script>
+const CATEGORY_TREE = {
+ "护肤":{
+  "清洁与卸妆":["洁面产品","卸妆产品","去角质产品","T区/黑头清洁产品"],
+  "基础护理":["化妆水类","面部精华类","乳液类","面霜类","护肤油类","面部凝胶类"],
+  "面膜":["贴片面膜","涂抹面膜","睡眠面膜","撕拉/成膜面膜"],
+  "眼部护理":["眼霜/眼部乳霜","眼部精华","眼膜"],
+  "唇部护理":["润唇护理","唇部精华/唇膜","唇部去角质"],
+  "防晒":["防晒产品"],
+  "其他/创新":["其他/创新护肤产品"]
+ },
+ "彩妆":{
+  "妆前与底妆":["妆前产品","粉底产品","气垫底妆","BB/CC类","遮瑕","粉饼","散粉/蜜粉","定妆喷雾","素颜霜"],
+  "面部彩妆":["腮红","高光","修容/阴影"],
+  "眼妆":["眼影","眼线","睫毛产品","眉妆"],
+  "唇妆":["口红/有色唇膏","唇釉/唇彩/唇蜜","唇线"],
+  "美甲":["甲彩产品"],
+  "多功能彩妆":["多用彩妆"],
+  "其他/创新":["其他/创新彩妆产品"]
+ },
+ "头发与头皮":{
+  "洗发清洁":["洗发产品","头皮清洁产品","干洗产品"],
+  "护发":["护发素/润发产品","发膜","护发精华/油","免洗护发"],
+  "头皮护理":["头皮精华/护理液","头皮喷雾/凝胶"],
+  "染发":["染发产品","漂发/脱色产品"],
+  "烫发":["烫发产品","拉直/直发化学产品"],
+  "造型":["发胶/定型喷雾","发蜡/发泥","啫喱/定型水","摩丝","弹力素/造型乳","蓬蓬粉"],
+  "其他/创新":["其他/创新头发产品"]
+ },
+ "身体与个护":{
+  "身体清洁":["沐浴产品","洁肤皂","身体去角质","浴盐","手部清洁产品"],
+  "身体护理":["身体乳/霜","身体精华","身体油","身体凝胶/露"],
+  "手足护理":["护手产品","手膜","足部护理","足膜"],
+  "香体与爽身":["香体/除臭产品","爽身产品","花露水/香体水"],
+  "脱毛":["脱毛产品"],
+  "剃须辅助":["须前产品","剃须产品","须后产品"],
+  "特殊部位护理":["外用私护清洁/护理"],
+  "其他/创新":["其他/创新身体个护"]
+ },
+ "香氛":{
+  "液体香水":["液体香水"],
+  "固体香氛":["固体香水/香膏"],
+  "轻香氛":["香体喷雾/Body Mist","走珠香水"],
+  "头发香氛":["发香产品"],
+  "其他/创新":["其他/创新人体香氛"]
+ }
+};
+
+const DOSAGE_ALL = [
+ ["00","其他"],["01","膏霜乳"],["02","液体"],["03","凝胶"],["04","粉剂"],["05","块状"],
+ ["06","泥"],["07","蜡基"],["08","喷雾剂"],["09","气雾剂"],["10","贴/膜/含基材"],["11","冻干"]
+];
+const METHOD_ALL=[["01","淋洗"],["02","驻留"]];
+const AREA_ALL=[["01","头发"],["02","头皮"],["03","躯干部位"],["04","眼部"],["05","面部"],["06","口唇"],["07","身体皮肤"],["08","手足"],["09","甲"],["10","全身/多部位"]];
+const PROVINCES=["北京","天津","河北","山西","内蒙古","辽宁","吉林","黑龙江","上海","江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南","广东","广西","海南","重庆","四川","贵州","云南","西藏","陕西","甘肃","青海","宁夏","新疆"];
+
+const EFFICACY = [
+ ["01","染发",1],["02","烫发",1],["03","祛斑美白",1],["04","防晒",1],["05","防脱发",1],
+ ["06","祛痘",0],["07","滋养",0],["08","修护",0],["09","清洁",0],["10","卸妆",0],
+ ["11","保湿",0],["12","美容修饰",0],["13","芳香",0],["14","除臭",0],["15","抗皱",0],
+ ["16","紧致",0],["17","舒缓",0],["18","控油",0],["19","去角质",0],["20","爽身",0],
+ ["21","护发",0],["22","防断发",0],["23","去屑",0],["24","发色护理",0],["25","脱毛",0],["26","辅助剃须剃毛",0]
+];
+
+const INFANT_ALLOWED=new Set(["清洁","保湿","护发","防晒","舒缓","爽身"]);
+const CHILD_ALLOWED=new Set(["清洁","卸妆","保湿","美容修饰","芳香","护发","防晒","修护","舒缓","爽身"]);
+
+const MAP = {
+ // skincare
+ "洁面产品":{d:["01","02","03","04","05"],m:["01"],a:["05"],e:["清洁","保湿","舒缓","控油"]},
+ "卸妆产品":{d:["01","02","03","07"],m:["01"],a:["05","04","06"],e:["卸妆","清洁","保湿"]},
+ "去角质产品":{d:["01","02","03","04"],m:["01"],a:["05"],e:["去角质","清洁"]},
+ "化妆水类":{d:["02"],m:["02"],a:["05"],e:["保湿","舒缓","修护","控油","抗皱","紧致"]},
+ "面部精华类":{d:["02","03","01","11"],m:["02"],a:["05"],e:["保湿","修护","抗皱","紧致","舒缓","控油","祛斑美白","滋养"]},
+ "乳液类":{d:["01","02"],m:["02"],a:["05"],e:["保湿","修护","舒缓","抗皱","紧致","滋养"]},
+ "面霜类":{d:["01","03"],m:["02"],a:["05"],e:["保湿","修护","抗皱","紧致","舒缓","滋养","祛斑美白"]},
+ "护肤油类":{d:["02"],m:["02"],a:["05"],e:["保湿","滋养","修护"]},
+ "面部凝胶类":{d:["03"],m:["02"],a:["05"],e:["保湿","舒缓","修护","控油"]},
+ "贴片面膜":{d:["10"],m:["02"],a:["05"],e:["保湿","舒缓","修护","抗皱","紧致","祛斑美白"]},
+ "涂抹面膜":{d:["01","03","06"],m:["01","02"],a:["05"],e:["保湿","舒缓","修护","抗皱","紧致","滋养","控油","清洁","祛斑美白"]},
+ "睡眠面膜":{d:["01","03"],m:["02"],a:["05"],e:["保湿","修护","舒缓","抗皱","滋养"]},
+ "撕拉/成膜面膜":{d:["01","03"],m:["01"],a:["05"],e:["清洁","去角质","控油"]},
+ "眼霜/眼部乳霜":{d:["01","03"],m:["02"],a:["04"],e:["保湿","抗皱","紧致","修护","舒缓"]},
+ "眼部精华":{d:["02","03"],m:["02"],a:["04"],e:["保湿","抗皱","紧致","修护"]},
+ "眼膜":{d:["10","01","03"],m:["02"],a:["04"],e:["保湿","抗皱","紧致","修护"]},
+ "润唇护理":{d:["07","01"],m:["02"],a:["06"],e:["保湿","修护"]},
+ "唇部精华/唇膜":{d:["01","02","03","10"],m:["02"],a:["06"],e:["保湿","修护"]},
+ "唇部去角质":{d:["01","04"],m:["01"],a:["06"],e:["去角质","清洁"]},
+ "防晒产品":{d:["01","02","03","08","09","07"],m:["02"],a:["05","07","06"],e:["防晒","保湿","美容修饰"]},
+
+ // makeup
+ "妆前产品":{d:["01","02","03","08"],m:["02"],a:["05"],e:["美容修饰","保湿","控油","防晒"]},
+ "粉底产品":{d:["01","02"],m:["02"],a:["05"],e:["美容修饰","保湿","控油","防晒"]},
+ "气垫底妆":{d:["02","01"],m:["02"],a:["05"],e:["美容修饰","保湿","防晒"]},
+ "BB/CC类":{d:["01","02"],m:["02"],a:["05"],e:["美容修饰","保湿","防晒"]},
+ "遮瑕":{d:["01","02","07"],m:["02"],a:["05","04"],e:["美容修饰"]},
+ "粉饼":{d:["04","05"],m:["02"],a:["05"],e:["美容修饰","控油"]},
+ "散粉/蜜粉":{d:["04"],m:["02"],a:["05"],e:["美容修饰","控油"]},
+ "定妆喷雾":{d:["08","02"],m:["02"],a:["05"],e:["美容修饰","保湿"]},
+ "素颜霜":{d:["01"],m:["02"],a:["05"],e:["美容修饰","保湿","防晒"]},
+ "腮红":{d:["04","05","01","02"],m:["02"],a:["05"],e:["美容修饰"]},
+ "高光":{d:["04","05","01","02"],m:["02"],a:["05"],e:["美容修饰"]},
+ "修容/阴影":{d:["04","05","01","02"],m:["02"],a:["05"],e:["美容修饰"]},
+ "眼影":{d:["04","05","01","02"],m:["02"],a:["04"],e:["美容修饰"]},
+ "眼线":{d:["02","01","07"],m:["02"],a:["04"],e:["美容修饰"]},
+ "睫毛产品":{d:["02","01"],m:["02"],a:["04"],e:["美容修饰"]},
+ "眉妆":{d:["04","05","02","07"],m:["02"],a:["05"],e:["美容修饰"]},
+ "口红/有色唇膏":{d:["07","05","01"],m:["02"],a:["06"],e:["美容修饰","保湿"]},
+ "唇釉/唇彩/唇蜜":{d:["02","01","03"],m:["02"],a:["06"],e:["美容修饰","保湿"]},
+ "唇线":{d:["07","05"],m:["02"],a:["06"],e:["美容修饰"]},
+ "甲彩产品":{d:["02","07"],m:["02"],a:["09"],e:["美容修饰"]},
+ "多用彩妆":{d:["01","02","04","05","07"],m:["02"],a:["10"],e:["美容修饰"]},
+
+ // hair
+ "洗发产品":{d:["02","01","03"],m:["01"],a:["01","02"],e:["清洁","护发","去屑","控油"]},
+ "头皮清洁产品":{d:["01","03","04"],m:["01"],a:["02"],e:["清洁","去屑","控油"]},
+ "干洗产品":{d:["08","09","04"],m:["02"],a:["01"],e:["清洁","控油"]},
+ "护发素/润发产品":{d:["01","02"],m:["01"],a:["01"],e:["护发","保湿","修护","防断发"]},
+ "发膜":{d:["01","03"],m:["01","02"],a:["01"],e:["护发","修护","滋养","防断发"]},
+ "护发精华/油":{d:["02","01"],m:["02"],a:["01"],e:["护发","修护","防断发","滋养"]},
+ "免洗护发":{d:["01","02","08"],m:["02"],a:["01"],e:["护发","修护","防断发"]},
+ "头皮精华/护理液":{d:["02","03"],m:["02"],a:["02"],e:["保湿","舒缓","控油","去屑","防脱发"]},
+ "头皮喷雾/凝胶":{d:["08","03"],m:["02"],a:["02"],e:["舒缓","控油","去屑","防脱发"]},
+ "染发产品":{d:["01","02"],m:["01","02"],a:["01"],e:["染发"]},
+ "漂发/脱色产品":{d:["01","04"],m:["01"],a:["01"],e:["染发"]},
+ "烫发产品":{d:["01","02"],m:["01"],a:["01"],e:["烫发"]},
+ "拉直/直发化学产品":{d:["01","02"],m:["01"],a:["01"],e:["烫发"]},
+ "发胶/定型喷雾":{d:["08","09","02"],m:["02"],a:["01"],e:["美容修饰"]},
+ "发蜡/发泥":{d:["07","06","01"],m:["02"],a:["01"],e:["美容修饰"]},
+ "啫喱/定型水":{d:["03","02"],m:["02"],a:["01"],e:["美容修饰"]},
+ "摩丝":{d:["09"],m:["02"],a:["01"],e:["美容修饰"]},
+ "弹力素/造型乳":{d:["01","03"],m:["02"],a:["01"],e:["美容修饰","护发"]},
+ "蓬蓬粉":{d:["04"],m:["02"],a:["01"],e:["美容修饰","控油"]},
+
+ // body
+ "沐浴产品":{d:["02","01","03"],m:["01"],a:["07"],e:["清洁","保湿","舒缓"]},
+ "洁肤皂":{d:["05"],m:["01"],a:["07"],e:["清洁"]},
+ "身体去角质":{d:["01","03","04"],m:["01"],a:["07"],e:["去角质","清洁"]},
+ "浴盐":{d:["04"],m:["01"],a:["07"],e:["清洁","去角质"]},
+ "手部清洁产品":{d:["02","03","01"],m:["01"],a:["08"],e:["清洁"]},
+ "身体乳/霜":{d:["01"],m:["02"],a:["07"],e:["保湿","滋养","修护","舒缓","紧致"]},
+ "身体精华":{d:["02","03"],m:["02"],a:["07"],e:["保湿","修护","紧致"]},
+ "身体油":{d:["02"],m:["02"],a:["07"],e:["保湿","滋养"]},
+ "身体凝胶/露":{d:["03","02"],m:["02"],a:["07"],e:["保湿","舒缓","爽身"]},
+ "护手产品":{d:["01","02"],m:["02"],a:["08"],e:["保湿","修护","滋养"]},
+ "手膜":{d:["10","01"],m:["02"],a:["08"],e:["保湿","修护"]},
+ "足部护理":{d:["01","03"],m:["02"],a:["08"],e:["保湿","修护","去角质"]},
+ "足膜":{d:["10","01"],m:["02"],a:["08"],e:["保湿","去角质"]},
+ "香体/除臭产品":{d:["08","09","02","01"],m:["02"],a:["07"],e:["除臭","芳香","爽身"]},
+ "爽身产品":{d:["04","02","08"],m:["02"],a:["07"],e:["爽身","芳香"]},
+ "花露水/香体水":{d:["02","08"],m:["02"],a:["07"],e:["芳香","爽身"]},
+ "脱毛产品":{d:["01","03"],m:["01"],a:["07","08"],e:["脱毛"]},
+ "须前产品":{d:["01","02"],m:["02"],a:["05"],e:["辅助剃须剃毛"]},
+ "剃须产品":{d:["01","03"],m:["01"],a:["05"],e:["辅助剃须剃毛"]},
+ "须后产品":{d:["01","02"],m:["02"],a:["05"],e:["舒缓","保湿"]},
+
+ // fragrance
+ "液体香水":{d:["02","08"],m:["02"],a:["10"],e:["芳香"]},
+ "固体香水/香膏":{d:["07","01"],m:["02"],a:["10"],e:["芳香"]},
+ "香体喷雾/Body Mist":{d:["08","09","02"],m:["02"],a:["07"],e:["芳香"]},
+ "走珠香水":{d:["02"],m:["02"],a:["07"],e:["芳香"]},
+ "发香产品":{d:["08","09","02"],m:["02"],a:["01"],e:["芳香","护发"]}
+};
+
+const SUFFIX_MAP={
+ "洁面产品":["洁面乳","洁面膏","洁面啫喱","洁面慕斯","洁面产品"],
+ "卸妆产品":["卸妆油","卸妆膏","卸妆乳","卸妆水","卸妆产品"],
+ "面部精华类":["精华液","精华露","精华","精萃液"],
+ "面霜类":["面霜","精华霜","乳霜"],
+ "乳液类":["乳液","精华乳"],
+ "涂抹面膜":["面膜","面膜霜","面膜膏"],"贴片面膜":["面膜"],"睡眠面膜":["睡眠面膜"],
+ "眼霜/眼部乳霜":["眼霜","眼部乳霜"],"眼部精华":["眼部精华"],"眼膜":["眼膜"],
+ "妆前产品":["妆前乳","妆前霜","妆前产品"],"粉底产品":["粉底液","粉底霜"],"气垫底妆":["气垫","气垫粉霜"],
+ "遮瑕":["遮瑕液","遮瑕膏","遮瑕盘"],"粉饼":["粉饼"],"散粉/蜜粉":["散粉","蜜粉"],"定妆喷雾":["定妆喷雾"],
+ "腮红":["腮红","腮红膏","腮红液"],"高光":["高光","高光粉","高光液"],"修容/阴影":["修容","修容盘"],
+ "眼影":["眼影","眼影盘"],"眼线":["眼线液","眼线笔"],"睫毛产品":["睫毛膏"],"眉妆":["眉笔","眉粉","染眉膏"],
+ "口红/有色唇膏":["口红","唇膏"],"唇釉/唇彩/唇蜜":["唇釉","唇彩","唇蜜"],"唇线":["唇线笔"],
+ "洗发产品":["洗发水","洗发露"],"护发素/润发产品":["护发素","润发乳"],"发膜":["发膜"],"头皮精华/护理液":["头皮精华","头皮护理液"],
+ "身体乳/霜":["身体乳","身体霜"],"护手产品":["护手霜"],"沐浴产品":["沐浴露","沐浴乳"],
+ "液体香水":["香水"],"固体香水/香膏":["香膏","固体香水"],"香体喷雾/Body Mist":["香体喷雾"]
+};
+const STYLE_AXES=[
+ ["benefit_to_emotion","功效直给","情绪意象",45],
+ ["accessible_to_luxury","日常亲和","奢华精致",55],
+ ["playful_to_mature","年轻玩趣","成熟典雅",60],
+ ["minimal_to_ornate","极简克制","华丽繁复",35],
+ ["gentle_to_bold","柔和亲近","强势先锋",45]
+];
+const STYLE_TAGS=["科技科研","皮肤学专业","成分资产","东方文化","国际现代","艺术时尚","文学诗意","天然植物","奢华材质","疗愈温柔","甜美少女","知性成熟","酷感中性","强势先锋","感官质地","社媒传播"];
+const AVOID_TAGS=["药感","少女感","古风","网红感","中药感","廉价感","过度科技","奢侈香水式命名"];
+const POPS=[["03","普通人群"],["02","儿童 3–12岁"],["01","婴幼儿 0–3岁"]];
+const state={step:1,l1:"",l2:"",l3:"",population:"03",gender:"ANY",eff:[],priority:[],styles:[],avoids:[],brief:null};
+const $=id=>document.getElementById(id);
+const text=(id)=>$(id)?.value?.trim()||"";
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function fill(sel,arr,ph){sel.innerHTML=`<option value="">${ph||"请选择"}</option>`+arr.map(x=>{const v=Array.isArray(x)?x[0]:x,t=Array.isArray(x)?x[1]:x;return `<option value="${esc(v)}">${esc(t)}</option>`}).join("");}
+function labelOf(arr,code){return (arr.find(x=>x[0]===code)||[])[1]||"";}
+function setRecommendedSelect(id,codes,all){const sel=$(id),cur=sel.value;const rec=all.filter(x=>codes.includes(x[0])),rest=all.filter(x=>!codes.includes(x[0]));sel.innerHTML='<option value="">请选择</option>'+(rec.length?'<optgroup label="推荐">'+rec.map(x=>`<option value="${x[0]}">${x[1]}</option>`).join('')+'</optgroup>':'')+'<optgroup label="其他可选">'+rest.map(x=>`<option value="${x[0]}">${x[1]}</option>`).join('')+'</optgroup>';if(cur&&all.some(x=>x[0]===cur))sel.value=cur;else if(codes.length)sel.value=codes[0];}
+function init(){
+ fill($("l1"),Object.keys(CATEGORY_TREE),"选择一级类目"); fill($("province"),PROVINCES,"选择省份"); fill($("dosage"),DOSAGE_ALL,"选择剂型"); fill($("method"),METHOD_ALL,"选择使用方法"); fill($("area"),AREA_ALL,"选择使用部位");
+ $("population").innerHTML=POPS.map(([v,n],i)=>`<button type="button" data-value="${v}" class="${i===0?'active':''}">${n}</button>`).join('');
+ renderStyles(); renderTags(); bind(); renderEfficacies(); updateSummary(); showStep(1);
+}
+function bind(){
+ $("l1").addEventListener('change',e=>{state.l1=e.target.value;state.l2=state.l3='';fill($("l2"),state.l1?Object.keys(CATEGORY_TREE[state.l1]):[],"选择二级类目");$("l2").disabled=!state.l1;fill($("l3"),[],"选择三级类目");$("l3").disabled=true;updateMapping();});
+ $("l2").addEventListener('change',e=>{state.l2=e.target.value;state.l3='';fill($("l3"),state.l2?CATEGORY_TREE[state.l1][state.l2]:[],"选择三级类目");$("l3").disabled=!state.l2;updateMapping();});
+ $("l3").addEventListener('change',e=>{state.l3=e.target.value;updateMapping();});
+ ["dosage","method","area","province","brand","marketingLanguage","styleText","ingredients","technology","sensory","seriesVisual","futureSku"].forEach(id=>$(id)?.addEventListener('input',()=>{if(id==='area')renderEfficacies();updateSummary();}));
+ document.querySelectorAll('#population button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#population button').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.population=b.dataset.value;state.eff=state.eff.filter(isEffAllowed);state.priority=state.priority.filter(x=>state.eff.includes(x));renderEfficacies();updateSummary();}));
+ document.querySelectorAll('#gender button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#gender button').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.gender=b.dataset.value;updateSummary();}));
+ document.querySelectorAll('.step').forEach(b=>b.addEventListener('click',()=>showStep(Number(b.dataset.step))));
+ $("prevBtn").addEventListener('click',()=>showStep(Math.max(1,state.step-1))); $("nextBtn").addEventListener('click',()=>showStep(Math.min(5,state.step+1)));
+ $("categorySearch").addEventListener('input',renderSearch); document.addEventListener('click',e=>{if(!e.target.closest('.searchbox'))$("searchResults").classList.remove('show')});
+ $("generateBrief").addEventListener('click',generateBrief); $("copyBrief").addEventListener('click',copyBrief); $("downloadJson").addEventListener('click',downloadJson); $("openChatGPT").addEventListener('click',()=>window.open('https://chatgpt.com/','_blank','noopener'));
+}
+function renderSearch(){const q=text('categorySearch').toLowerCase();const box=$("searchResults");if(!q){box.classList.remove('show');box.innerHTML='';return}const results=[];for(const [l1,seconds] of Object.entries(CATEGORY_TREE))for(const [l2,thirds] of Object.entries(seconds))for(const l3 of thirds)if((l1+' '+l2+' '+l3).toLowerCase().includes(q))results.push([l1,l2,l3]);box.innerHTML=(results.slice(0,12).map(r=>`<div class="search-item" data-l1="${esc(r[0])}" data-l2="${esc(r[1])}" data-l3="${esc(r[2])}"><strong>${esc(r[2])}</strong><span>${esc(r[0])} › ${esc(r[1])}</span></div>`).join('')||'<div class="search-item"><span>没有找到，试试更短的关键词。</span></div>');box.classList.add('show');box.querySelectorAll('[data-l3]').forEach(el=>el.addEventListener('click',()=>selectCategory(el.dataset.l1,el.dataset.l2,el.dataset.l3)));}
+function selectCategory(l1,l2,l3){state.l1=l1;state.l2=l2;state.l3=l3;$("l1").value=l1;fill($("l2"),Object.keys(CATEGORY_TREE[l1]),"选择二级类目");$("l2").disabled=false;$("l2").value=l2;fill($("l3"),CATEGORY_TREE[l1][l2],"选择三级类目");$("l3").disabled=false;$("l3").value=l3;$("categorySearch").value=l3;$("searchResults").classList.remove('show');updateMapping();}
+function updateMapping(){const m=MAP[state.l3];if(m){setRecommendedSelect('dosage',m.d,DOSAGE_ALL);setRecommendedSelect('method',m.m,METHOD_ALL);setRecommendedSelect('area',m.a,AREA_ALL);$("mappingHint").classList.remove('hidden');$("mappingHint").innerHTML=`已按 <strong>${esc(state.l3)}</strong> 推荐监管属性。推荐只是帮你少填几步，最终仍以实际产品为准。`;}else{fill($("dosage"),DOSAGE_ALL,"选择剂型");fill($("method"),METHOD_ALL,"选择使用方法");fill($("area"),AREA_ALL,"选择使用部位");$("mappingHint").classList.add('hidden')}renderEfficacies();updateSummary();}
+function isEffAllowed(name){if(state.population==='01')return INFANT_ALLOWED.has(name);if(state.population==='02')return CHILD_ALLOWED.has(name);const area=$("area").value;if(name==='祛斑美白'&&area==='06')return false;if(name==='防晒'&&area==='01')return false;if(name==='脱毛'&&['04','05','06'].includes(area))return false;return true;}
+function renderEfficacies(){const rec=new Set(MAP[state.l3]?.e||[]),R=$("recommendedEff"),O=$("otherEff");R.innerHTML='';O.innerHTML='';for(const [code,name,special] of EFFICACY){const b=document.createElement('button');b.type='button';b.className='chip'+(rec.has(name)?' rec':'')+(special?' special':'')+(state.eff.includes(name)?' on':'')+(!isEffAllowed(name)?' disabled':'');b.textContent=name;b.addEventListener('click',()=>{if(!isEffAllowed(name))return;if(state.eff.includes(name)){state.eff=state.eff.filter(x=>x!==name);state.priority=state.priority.filter(x=>x!==name)}else state.eff.push(name);renderEfficacies();updateSummary();});(rec.has(name)?R:O).appendChild(b)}if(!R.children.length)R.innerHTML='<span style="font-size:12px;color:#776f66">选择三级类目后显示推荐功效。</span>';renderPriority();const specials=state.eff.filter(n=>EFFICACY.find(e=>e[1]===n)?.[2]);const w=$("effWarning");if(specials.length){w.classList.remove('hidden');w.textContent=`已选择特殊化妆品功效：${specials.join('、')}。Skill 应进入更严格的注册 / 法规审查路径。`;}else w.classList.add('hidden');}
+function renderPriority(){const box=$("priorityEff");box.innerHTML='';if(!state.eff.length){box.innerHTML='<span style="font-size:12px;color:#776f66">先选择备案功效。</span>';return}for(const n of state.eff){const b=document.createElement('button');b.type='button';b.className='chip'+(state.priority.includes(n)?' on':'');b.textContent=(state.priority.includes(n)?'★ ':'☆ ')+n;b.addEventListener('click',()=>{if(state.priority.includes(n))state.priority=state.priority.filter(x=>x!==n);else if(state.priority.length<2)state.priority.push(n);renderPriority();updateSummary();});box.appendChild(b)}}
+function renderStyles(){$("styleSliders").innerHTML=STYLE_AXES.map(([id,l,r,v])=>`<div class="slider"><div class="left">${l}</div><input type="range" min="0" max="100" value="${v}" data-style="${id}"><div class="right">${r}</div><div class="value">${v}</div></div>`).join('');document.querySelectorAll('[data-style]').forEach(inp=>inp.addEventListener('input',()=>{inp.parentElement.querySelector('.value').textContent=inp.value;updateSummary();}));}
+function renderTags(){$("styleTags").innerHTML=STYLE_TAGS.map(x=>`<button type="button" class="chip">${x}</button>`).join('');$("avoidTags").innerHTML=AVOID_TAGS.map(x=>`<button type="button" class="chip">${x}</button>`).join('');$("styleTags").querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{b.classList.toggle('on');state.styles=[...$("styleTags").querySelectorAll('.chip.on')].map(x=>x.textContent);updateSummary();}));$("avoidTags").querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{b.classList.toggle('on');state.avoids=[...$("avoidTags").querySelectorAll('.chip.on')].map(x=>x.textContent);updateSummary();}));}
+function showStep(n){state.step=n;document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',Number(v.dataset.view)===n));document.querySelectorAll('.step').forEach(b=>b.classList.toggle('active',Number(b.dataset.step)===n));$("prevBtn").style.visibility=n===1?'hidden':'visible';$("nextBtn").style.visibility=n===5?'hidden':'visible';if(n===5)validate(true);window.scrollTo({top:0,behavior:'smooth'});}
+function requiredMissing(){const miss=[];if(!state.l3)miss.push('三级产品类目');if(!$("dosage").value)miss.push('监管剂型');if(!$("method").value)miss.push('使用方法');if(!$("area").value)miss.push('使用部位');if(!$("province").value)miss.push('备案地区');if(!state.eff.length)miss.push('至少1项备案功效');return miss;}
+function validate(show=false){const miss=requiredMissing(),box=$("validationBox");if(!miss.length){box.className='validation ok';box.textContent='必要信息已完整，可以生成 Naming Brief。';}else{box.className='validation err';box.textContent='还缺：'+miss.join('、');}return !miss.length;}
+function styleObj(){const o={};document.querySelectorAll('[data-style]').forEach(inp=>o[inp.dataset.style]=Number(inp.value));return o;}
+function makeBrief(){return {market:'CN_MAINLAND',brand:text('brand')||null,category:{level_1:state.l1,level_2:state.l2,level_3:state.l3,status:'confirmed'},regulatory:{dosage_form:{code:$("dosage").value,name:labelOf(DOSAGE_ALL,$("dosage").value),status:'confirmed'},use_method:{code:$("method").value,name:labelOf(METHOD_ALL,$("method").value),status:'confirmed'},use_area:{code:$("area").value,name:labelOf(AREA_ALL,$("area").value),status:'confirmed'},population:{code:state.population,name:(POPS.find(x=>x[0]===state.population)||[])[1],status:'confirmed'},filing_province:{name:$("province").value,status:'confirmed'}},efficacy:{filed:state.eff,naming_priority:state.priority,marketing_language:text('marketingLanguage')||null},audience:{gender_tendency:state.gender},style:{...styleObj(),tags:state.styles,avoid:state.avoids,free_text:text('styleText')||null},assets:{ingredients:text('ingredients')||null,technology:text('technology')||null,sensory:text('sensory')||null,series_or_visual:text('seriesVisual')||null,future_sku:text('futureSku')||null}};}
+function generateBrief(){if(!validate(true)){showStep(5);return}state.brief=makeBrief();const prompt=`请使用 Cosmetic Naming AI Skill 对以下中国大陆化妆品项目进行命名。
+
+以下信息由 Interactive Naming Brief Builder 标准化生成。
+请遵循：
+1. 不要重复询问 status=confirmed 的字段；
+2. status=inferred_high_confidence 的字段仅在存在明确矛盾时再确认；
+3. 只在 provisional 字段确实影响监管分类、命名路线或候选风险时进行最少量追问；
+4. 不得发明未提供的成分、技术、质地、包装或系列资产；
+5. 从至少 3 条差异明显的 Naming Strategies 生成并筛选候选；
+6. 主 Shortlist 输出 6 个候选；
+7. 每个创意/生造词必须附 Naming explanation / Filing basis；
+8. 所有轮次的新候选都必须重新经过 Regulatory / Semantic Display Gate；
+9. Regulatory Risk、Market Collision、Cliché 与 Trademark 分开说明；
+10. Trademark 未实际检索时写 Not checked；
+11. 如果 marketing_language 不是标准功效名称，先做语义映射，不要直接当作 filed efficacy。
+
+<COSMETIC_NAMING_BRIEF version="1.0">
+${JSON.stringify(state.brief,null,2)}
+</COSMETIC_NAMING_BRIEF>`;$("promptPreview").value=prompt;$("copyBrief").disabled=false;$("downloadJson").disabled=false;$("copyFeedback").textContent='Naming Brief 已生成。';updateSummary();}
+async function copyBrief(){const t=$("promptPreview").value;if(!t)return;try{await navigator.clipboard.writeText(t);$("copyFeedback").textContent='已复制，可以直接粘贴到 ChatGPT。';}catch(e){$("promptPreview").select();document.execCommand('copy');$("copyFeedback").textContent='已复制。';}}
+function downloadJson(){if(!state.brief)return;const blob=new Blob([JSON.stringify(state.brief,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cosmetic_naming_brief.json';a.click();URL.revokeObjectURL(a.href);}
+function updateSummary(){const rows=[['类目',state.l3?`${state.l1} › ${state.l2} › ${state.l3}`:'未选择'],['剂型',labelOf(DOSAGE_ALL,$("dosage")?.value)||'未选择'],['使用方法',labelOf(METHOD_ALL,$("method")?.value)||'未选择'],['部位',labelOf(AREA_ALL,$("area")?.value)||'未选择'],['备案地区',$("province")?.value||'未选择'],['备案功效',state.eff.join('、')||'未选择'],['命名重点',state.priority.join('、')||'由 AI 推荐'],['风格',state.styles.join('、')||'默认'],['Avoid',state.avoids.join('、')||'无']];$("liveSummary").innerHTML=rows.map(r=>`<div class="sumrow"><span>${r[0]}</span><strong>${esc(r[1])}</strong></div>`).join('');const miss=requiredMissing();$("completion").className='completion'+(!miss.length?' ok':'');$("completion").textContent=!miss.length?'必要信息已完整':'还需完成 '+miss.length+' 项必要信息';if(state.step===5)validate(true);}
+window.addEventListener('DOMContentLoaded',init);
+</script></body></html>
