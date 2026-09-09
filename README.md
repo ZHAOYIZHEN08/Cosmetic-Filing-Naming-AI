@@ -31,11 +31,11 @@ Brief Builder 是纯静态网页，**不调用 OpenAI API，不需要 API Key，
 
 ### 第一步：打开 Naming Brief Builder
 
-GitHub Pages 部署完成后，直接打开你的项目主页。
+点击下面的链接进入交互式产品信息面板：
 
-如果你还没有部署，也可以在电脑上直接打开：
+### 👉 [打开 Naming Brief Builder](https://zhaoyizhen08.github.io/Cosmetic-Filing-Naming-AI/intake/)
 
-`intake/index.html`
+无需登录，无需 API Key。填写产品类目、剂型、功效和命名风格后，可以直接生成标准化 Naming Brief。
 
 ---
 
